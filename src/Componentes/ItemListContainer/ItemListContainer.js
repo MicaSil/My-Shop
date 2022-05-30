@@ -1,21 +1,32 @@
-import React from "react"
-import ItemCount from "../ItemCount/ItemCount"
+import React, { useEffect, useState } from "react"
 import ItemList from '../ItemList/ItemList'
-import { productos } from "../../asyncmock"
+// import ItemCount from "../ItemCount/ItemCount"
+import { getFecht } from "../../Array/getFech"
 
-const ItemListContainer = ({greeting}) => {
+    function ItemListContainer() {
+        const [productos, setProductos] = useState([])
+        const [loading, setloading] = useState(true)
 
-        const onAdd = (cantidad) => {
-            console.log(`Se agrego ${cantidad} productos al carrito`)
-        }
+            useEffect(() =>{
+                getFecht
+                .then((respuesta) => {
+                    return respuesta
+                })
+                
+            
+                .then((resp) => setProductos(resp))
+                .then(err => console.log(err))
+                .finally(() => setloading(false))
+            }, [])
     
-        
     
         return (
             <div className="ItemListContainer">
-                <h1>{greeting}</h1>
-                <ItemCount stock = {10} initial = {1} onAdd = {onAdd} />
-                <ItemList productos={productos}/>
+                {loading ? <h2 className="loading">Cargando...</h2>
+                :
+                <ItemList productos={productos} />
+                }
+                
             </div>
         )
     }
@@ -24,4 +35,5 @@ const ItemListContainer = ({greeting}) => {
 
 
 export default ItemListContainer
+
 
