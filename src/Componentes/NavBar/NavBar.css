@@ -1,0 +1,35 @@
+.contenedor{
+    background-color: rgb(240, 232, 232);
+}
+
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.logo {
+    color: black ;
+    font-size: 28px;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+nav ul li a{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    color: rgb(107, 102, 102);
+    transition: .3s;
+}
+
